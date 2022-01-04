@@ -24,15 +24,43 @@ const circle = require('../src/circle');
 */
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
-  it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    fail('Teste vazio!');
+  //it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
+    
     // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
+    it('Verifica se a função `circle` retorna `undefined` caso o parametro passado não seja um número', () => {
+      expect(circle('a')).toBeUndefined()
+    });
+
     // Teste se circle retorna um objeto.
+    it('Verifica se a função `circle` retorna um objeto', () => {
+      expect(circle(1)).toBeInstanceOf(Object);
+    });
+
     // Teste se o objeto retornado tem 3 propriedades.
+    it('Verifica se o Objeto retornado pela função `circle` possui as 3 propriedades', () => {
+    expect(circle(12)).toHaveProperty('radius', 'area', 'circumference')
+    });
+
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    it('Verifica se a função `circle` retorna `undefined` se não receber nenhum parametro', () => {
+    expect(circle()).toBeUndefined()
+    });
+
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
+    it('Verifica se a função `circle` retorna a circunferência correta', () => {
+      expect(circle(2)).toHaveProperty('circumference', 12.56)
+    });
+    
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
+    it('Verifica se a função `circle` retorna um Objeto com a área correta para um círculo de raio 3', () => {
+      expect(circle(3).area).toBeCloseTo(28.26)
+    });
+    
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-  });
+    it('Verifica se a função `circle` retorna um objeto com os dados corretos de um circulo de raio 3', () => {
+    expect(circle(3).radius).toBe(3)
+    expect(circle(3).area).toBeCloseTo(28.26)
+    expect(circle(3).circumference).toBeCloseTo(18.84)
+    });
 });
